@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SONOMEU - Página de Compra</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #9db8d1;
+        }
+        header {
+            background-color: #9db8d1;
+            padding: 20px;
+            color: #fbe3e9;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .form-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            font-family: 'Playfair Display', serif;
+            color: #9db8d1;
+            font-size: 24px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+        input, select {
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            background-color: #9db8d1;
+            color: #fbe3e9;
+            border: none;
+            padding: 15px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #7d9ac1;
+        }
+        @media (max-width: 768px) {
+            .form-container {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Seção de Compra -->
+    <div class="container">
+        <div class="form-container">
+            <h2>Finalizar Compra</h2>
+            <form action="processa_compra.php" method="POST">
+                <!-- Informações Pessoais -->
+                <label for="nome">Nome Completo</label>
+                <input type="text" id="nome" name="nome" required>
+
+                <label for="email">Endereço de E-mail</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="telefone">Número de Telefone</label>
+                <input type="tel" id="telefone" name="telefone" required>
+
+                <label for="cep">CEP</label>
+                <input type="text" id="cep" name="cep" required>
+
+                <label for="numero-casa">Número da Casa</label>
+                <input type="text" id="numero-casa" name="numero-casa" required>
+
+                <!-- Informações do Produto -->
+                <label for="id-produto">ID do Produto</label>
+                <input type="text" id="id-produto" name="id-produto" required>
+
+                <label for="quantidade">Quantidade</label>
+                <input type="number" id="quantidade" name="quantidade" min="1" required>
+
+                <!-- Botão de Enviar -->
+                <button type="submit">Confirmar Compra</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Rodapé -->
+    <footer class="footer">
+        <p>Todos os direitos reservados &copy; 2024 SONOMEU</p>
+    </footer>
+
+    <!-- Script de criação da tabela no banco de dados -->
+    <!--
+    create table compra (
+        nome varchar(50) not null,
+        email varchar(50) not null,
+        nTelefone integer not null,
+        cep integer not null,
+        nCasa integer not null,
+        idproduto integer not null,
+        qtd integer not null,
+        foreign key(nome) references conta(nome),
+        foreign key(email) references conta(email),
+        foreign key(idproduto) references produto(id)
+    );
+    -->
+</body>
+</html>
